@@ -54,14 +54,13 @@ public class movedrag : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.collider.tag == target)
             {
                 Obj = hit.collider.gameObject as GameObject;
-                Obj.transform.GetComponent<Renderer>().material = selected;
+                
                 Debug.Log(Obj.name);
             }
             else { Obj = null; }
             if (Input.GetMouseButtonDown(0)&&Obj!=null)
             {
-                Vector3 mPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -cam.transform.position.z + Obj.transform.position.z);
-                Obj.transform.position = cam.ScreenToWorldPoint(Input.mousePosition);
+                Obj.transform.GetComponent<Renderer>().material = selected;
             }
            
            
