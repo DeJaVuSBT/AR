@@ -12,7 +12,7 @@ public class Cable : MonoBehaviour
     [SerializeField]
     float partDis = 0.21f;
     [SerializeField]
-    bool reset, spawn, snapF, snapL;
+    bool reset, spawn, snapF=false, snapL=false;
     void Update()
     {
         if (spawn)
