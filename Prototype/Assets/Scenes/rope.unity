@@ -495,13 +495,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ee870e727a2cf4aa8af0c7ab8a1fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  part: {fileID: 3893747449387983837, guid: 93b7c83138317ed41a026cbc7698c8f8, type: 3}
+  part: {fileID: 3893747449387983837, guid: a79786b1a2b32264081865fa69c3cff6, type: 3}
   parentObj: {fileID: 1809827439}
   length: 5
   partDis: 0.21
   reset: 0
   spawn: 0
-  snapF: 1
+  snapF: 0
   snapL: 1
 --- !u!4 &187292683
 Transform:
