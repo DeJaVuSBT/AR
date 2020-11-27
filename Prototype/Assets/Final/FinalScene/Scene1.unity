@@ -171,7 +171,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291839270}
-  m_Mesh: {fileID: 1821548716}
+  m_Mesh: {fileID: 1722124566}
 --- !u!23 &291839273
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 921139914}
+  - {fileID: 1609900702}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -252,41 +252,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291839270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.445, y: 1.49, z: -1.555}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &921139914
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'poker_kMaterial
-
-    36228'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d13a864ea5644831ad788d2b14216b76, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1001 &1398949773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -312,31 +283,31 @@ PrefabInstance:
       objectReference: {fileID: 291839271}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.372
       objectReference: {fileID: 0}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.436
       objectReference: {fileID: 0}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.194
       objectReference: {fileID: 0}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.19009139
       objectReference: {fileID: 0}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.37112555
       objectReference: {fileID: 0}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.07790403
       objectReference: {fileID: 0}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9055728
       objectReference: {fileID: 0}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_RootOrder
@@ -344,11 +315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 23.71
       objectReference: {fileID: 0}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 44.57
       objectReference: {fileID: 0}
     - target: {fileID: 7258123756095995326, guid: b069a5bebf450dc469b481b743db2965, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -453,13 +424,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!43 &1821548716
+--- !u!21 &1609900702
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'poker_kMaterial
+
+    17368'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d13a864ea5644831ad788d2b14216b76, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
+--- !u!43 &1722124566
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh-3750
+  m_Name: ImageTargetMesh17366
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -18,22 +18,26 @@ public class puzzel1 : MonoBehaviour
             GameObject go = collision.gameObject as GameObject;
             Destroy(go);
             times++;
-            switch (times)
+            string itemname = collision.gameObject.name;
+            if (itemname == "Tree1")
             {
-                case 1:
-                    tree.transform.GetChild(1).gameObject.SetActive(true);
-                    break;
-                case 2:
-                    tree.transform.GetChild(2).gameObject.SetActive(true);
-                    break;
-                case 3:
-                    tree.transform.GetChild(3).gameObject.SetActive(true);
-                    break;
-                case 4:
-                    tree.transform.GetChild(4).gameObject.SetActive(true);
-                    break;
 
+                tree.transform.GetChild(1).gameObject.SetActive(true);
             }
+            else if (itemname == "Tree2")
+            {
+                tree.transform.GetChild(2).gameObject.SetActive(true);
+            }
+            else if (itemname == "Tree3")
+            {
+                tree.transform.GetChild(3).gameObject.SetActive(true);
+            }
+            else if (itemname == "TreeStar")
+            {
+                tree.transform.GetChild(4).gameObject.SetActive(true);
+            }
+                
+            
         }
 
 
