@@ -29,7 +29,7 @@ public class ElfAnimation : MonoBehaviour
     void Update()
     {
         SwitchAm();
-        SwitchText()
+        SwitchText();
     }
 
     private void SwitchAm() {

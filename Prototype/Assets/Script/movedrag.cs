@@ -13,7 +13,7 @@ public class movedrag : MonoBehaviour
     public Material normal;
     public GameObject elf;
     private Touch touch;
-
+    public AudioClip[] elfaudio;
     
     void Update()
     {
@@ -37,7 +37,7 @@ public class movedrag : MonoBehaviour
                     }
                     if (Physics.Raycast(ray, out hit) && hit.collider.gameObject==elf)
                     {
-
+                        AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf.transform.position);
                         elf.GetComponent<ElfAnimation>().textcount++;
 
                     }
@@ -59,11 +59,10 @@ public class movedrag : MonoBehaviour
             Debug.Log("using pc");
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit) && hit.collider.tag == target)
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf&&Input.GetMouseButtonDown(0))
             {
-                Obj = hit.collider.gameObject as GameObject;
                 
-                Debug.Log(Obj.name);
+                AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0,3)],elf.transform .position);
             }
             else { Obj = null; }
             if (Input.GetMouseButtonDown(0)&&Obj!=null)

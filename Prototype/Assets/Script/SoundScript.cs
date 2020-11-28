@@ -14,7 +14,7 @@ public class SoundScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+       /* if (Input.GetMouseButtonDown(0))
         {
             AudioSource.PlayClipAtPoint(clip, tree.transform.position);
         }
@@ -22,7 +22,7 @@ public class SoundScript : MonoBehaviour
         {
             Stop("Intro", tree);
         }
-
+        */
     }
 
     
