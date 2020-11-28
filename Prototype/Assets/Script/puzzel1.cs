@@ -7,14 +7,15 @@ public class puzzel1 : MonoBehaviour
     public GameObject tree;
     
     private int times;
+    public AudioClip clip,clip1;
 
-  
     void OnTriggerEnter(Collider collision)
     {
-        
+       
+
         if (collision.gameObject.tag == "Dragble")
         {
-            Debug.Log("triggerd");
+            AudioSource.PlayClipAtPoint(clip, tree.transform.position);
             GameObject go = collision.gameObject as GameObject;
             Destroy(go);
             times++;
@@ -35,6 +36,10 @@ public class puzzel1 : MonoBehaviour
             else if (itemname == "TreeStar")
             {
                 tree.transform.GetChild(4).gameObject.SetActive(true);
+            }
+            if (times==4)
+            {
+                AudioSource.PlayClipAtPoint(clip1, tree.transform.position);
             }
                 
             

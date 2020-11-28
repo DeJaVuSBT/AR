@@ -4,27 +4,90 @@ using UnityEngine;
 public class SoundScript : MonoBehaviour
 {
     public Sound[] sounds;
-    void Awake()
+    public GameObject tree;
+    public AudioClip clip;
+    void Start()
     {
-        foreach (Sound s in sounds) {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
+        
+        Play("Intro", tree);
+    }
 
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.loop = s.loop;
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            AudioSource.PlayClipAtPoint(clip, tree.transform.position);
+        }
+        if (Input.GetMouseButtonDown(2))
+        {
+            Stop("Intro", tree);
         }
 
     }
 
+    
 
     public void Play(string name)
     {
         for (int i = 0; i < sounds.Length; i++) {
-            if (sounds[i].name == name)
+            if (sounds[i].name == name&& !sounds[i].playing)
             {
+                sounds[i].source = gameObject.AddComponent<AudioSource>();
+                sounds[i].source.clip = sounds[i].clip;
+                sounds[i].source.volume = sounds[i].volume;
+                sounds[i].source.pitch = sounds[i].pitch;
+                sounds[i].source.loop = sounds[i].loop;
                 sounds[i].source.Play();
-            
+                sounds[i].playing = true;
+                
+            }
+        }
+    }
+    public void Play(string name,GameObject obj)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == name && !sounds[i].playing)
+            {
+                sounds[i].source = obj.AddComponent<AudioSource>();
+                sounds[i].source.clip = sounds[i].clip;
+                sounds[i].source.volume = sounds[i].volume;
+                sounds[i].source.pitch = sounds[i].pitch;
+                sounds[i].source.loop = sounds[i].loop;
+                sounds[i].source.Play();
+                sounds[i].playing = true;
+
+            }
+        }
+    }
+
+
+    public void Stop(string name,GameObject obj)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == name && sounds[i].playing)
+            {
+                
+                sounds[i].source.Stop();
+                Destroy(obj.GetComponent<AudioSource>());
+                sounds[i].playing = false;
+
+
+            }
+        }
+    }
+    public void Stop(string name)
+    {
+        for (int i = 0; i < sounds.Length; i++)
+        {
+            if (sounds[i].name == name && sounds[i].playing)
+            {
+                sounds[i].source.Stop();
+                Destroy(gameObject.GetComponent<AudioSource>());
+                sounds[i].playing = false;
+
+
             }
         }
     }
@@ -44,6 +107,7 @@ public class Sound
     [Range(0.1f, 3f)]
     public float pitch=1f;
     public bool loop;
+    public bool playing = false;
     [HideInInspector]
     public AudioSource source;
 }

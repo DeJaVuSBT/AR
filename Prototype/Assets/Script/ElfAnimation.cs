@@ -8,7 +8,7 @@ public class ElfAnimation : MonoBehaviour
 {
     private Animation Am;
     public TextMeshPro text;
-
+    public int textcount;
     private enum state
     {
         Stand
@@ -28,6 +28,11 @@ public class ElfAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SwitchAm();
+        SwitchText()
+    }
+
+    private void SwitchAm() {
         switch (elfstate)
         {
             case state.Stand:
@@ -37,7 +42,15 @@ public class ElfAnimation : MonoBehaviour
 
         }
     }
+    private void SwitchText() {
+        switch (textcount)
+        {
+            case 1:
+                text.text = "Morning Player,Click me to further interact to me";
+                break;
 
 
+        }
+    }
 }
 

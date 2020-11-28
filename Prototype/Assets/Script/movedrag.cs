@@ -11,6 +11,7 @@ public class movedrag : MonoBehaviour
     public float sens=0.001f;
     public Material selected;
     public Material normal;
+    public GameObject elf;
     private Touch touch;
 
     
@@ -30,10 +31,17 @@ public class movedrag : MonoBehaviour
 
                     if (Physics.Raycast(ray, out hit) && hit.collider.tag == target)
                     {
-
+                        
                         Obj = hit.collider.gameObject as GameObject;
+                        
+                    }
+                    if (Physics.Raycast(ray, out hit) && hit.collider.gameObject==elf)
+                    {
+
+                        elf.GetComponent<ElfAnimation>().textcount++;
 
                     }
+
                 }
                 if (touch.phase == TouchPhase.Moved&&Obj!=null)
                 {
