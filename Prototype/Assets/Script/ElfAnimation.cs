@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class ElfAnimation : MonoBehaviour
@@ -9,6 +10,7 @@ public class ElfAnimation : MonoBehaviour
     private Animation Am;
     public TextMeshPro text;
     public int textcount;
+    public string[] elftext;
     private enum state
     {
         Stand
@@ -43,10 +45,20 @@ public class ElfAnimation : MonoBehaviour
         }
     }
     private void SwitchText() {
+       // if (SceneManager.GetActiveScene().name=="")
+      //  {
+
+       // }
         switch (textcount)
         {
             case 1:
-                text.text = "Morning Player,Click me to further interact to me";
+                text.text = elftext[0];
+                break;
+            case 2:
+                text.text = elftext[1];
+                break;
+            case 3:
+                text.text = elftext[2];
                 break;
 
 

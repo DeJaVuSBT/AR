@@ -14,7 +14,7 @@ public class movedrag : MonoBehaviour
     public GameObject elf;
     private Touch touch;
     public AudioClip[] elfaudio;
-    
+    private bool isdraging = false;
     void Update()
     {
         if (!pc)
@@ -59,15 +59,33 @@ public class movedrag : MonoBehaviour
             Debug.Log("using pc");
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf&&Input.GetMouseButtonDown(0))
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf && Input.GetMouseButtonDown(0))
             {
-                
-                AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0,3)],elf.transform .position);
+
+                AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf.transform.position);
+                elf.GetComponent<ElfAnimation>().textcount++;
+            }
+            else if (Physics.Raycast(ray, out hit) && hit.collider.tag == target) {
+                Obj= hit.collider.gameObject as GameObject;
             }
             else { Obj = null; }
+
+
+            //mouse drag
             if (Input.GetMouseButtonDown(0)&&Obj!=null)
             {
-                Obj.transform.GetComponent<Renderer>().material = selected;
+                isdraging = true;
+               
+            }
+            if (Input.GetMouseButtonUp(0)) {
+                isdraging = false;
+            }
+            if (isdraging) {
+                //only X Z change in 3d 
+             //   Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition)-Obj.transform.position;
+
+
+              //  Obj.transform.Translate(mp);
             }
            
            
