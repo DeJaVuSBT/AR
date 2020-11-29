@@ -13,6 +13,7 @@ public class trigger : MonoBehaviour
         if (transform.parent.GetComponent<CharacterJoint>() == null)
         {
             triggered = false;
+            
         }
     }
 
@@ -20,8 +21,13 @@ public class trigger : MonoBehaviour
     {
         if (!triggered&&other.gameObject==target)
         {
+            other.gameObject.transform.GetChild(0).gameObject.SetActive(true);
             transform.parent.position = new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z - 0.21f);
             transform.parent.gameObject.AddComponent<CharacterJoint>().connectedBody = target.GetComponent<Rigidbody>();
+            transform.parent.gameObject.transform.tag = "Untagged";
+            transform.parent.gameObject.GetComponent<CharacterJoint>().breakForce = 999;
+            //stop the touch control from player
+            transform.parent.gameObject.transform.tag = "Dragble";
             //need to add untouchble for some time otherwise player will ruin it 
             // target.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             Light.SetActive(true);
@@ -30,6 +36,6 @@ public class trigger : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        transform.parent.gameObject.GetComponent<CharacterJoint>().breakForce = 999;
+        other.gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 }
