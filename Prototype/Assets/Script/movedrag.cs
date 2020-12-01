@@ -33,7 +33,7 @@ public class movedrag : MonoBehaviour
                     {
 
                         Obj = hit.collider.gameObject as GameObject;
-
+                        Obj.GetComponent<MeshRenderer>().material.color = Color.blue;
                     }
                     if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf1)
                     {
@@ -53,6 +53,7 @@ public class movedrag : MonoBehaviour
                         }
                     }
                 }
+
                     if (touch.phase == TouchPhase.Moved && Obj != null)
                     {
                         Obj.transform.position = new Vector3(Obj.transform.position.x + touch.deltaPosition.x * sens,
