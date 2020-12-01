@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Rick/StartScreen.unity
     guid: 5a486b3c815d88843ba250f6b344983e
   - enabled: 1
-    path: Assets/Scenes/Rick/GameTest.unity
-    guid: fa2e8c3b282b7cf4e930b90b574362ef
+    path: Assets/Final/FinalScene/prototype.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

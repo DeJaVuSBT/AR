@@ -5,9 +5,9 @@ using UnityEngine;
 public class puzzel1 : MonoBehaviour
 {
     public GameObject tree;
-    
-    private int times;
+    public int times;
     public AudioClip clip,clip1;
+    
 
     void OnTriggerEnter(Collider collision)
     {
@@ -19,6 +19,7 @@ public class puzzel1 : MonoBehaviour
             GameObject go = collision.gameObject as GameObject;
             Destroy(go);
             times++;
+            
             string itemname = collision.gameObject.name;
             if (itemname == "Tree1")
             {
@@ -40,6 +41,7 @@ public class puzzel1 : MonoBehaviour
             if (times==4)
             {
                 AudioSource.PlayClipAtPoint(clip1, tree.transform.position);
+
             }
                 
             

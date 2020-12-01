@@ -6,25 +6,14 @@ public class SoundScript : MonoBehaviour
     public Sound[] sounds;
     public GameObject tree;
     public AudioClip clip;
-    void Start()
-    {
-        
-        Play("Intro", tree);
-    }
 
-    private void Update()
-    {
-       /* if (Input.GetMouseButtonDown(0))
-        {
-            AudioSource.PlayClipAtPoint(clip, tree.transform.position);
-        }
-        if (Input.GetMouseButtonDown(2))
-        {
-            Stop("Intro", tree);
-        }
-        */
-    }
 
+   
+    public void BGM()
+    {
+
+        Play("Intro");
+    }
     
 
     public void Play(string name)

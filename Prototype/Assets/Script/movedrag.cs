@@ -11,7 +11,7 @@ public class movedrag : MonoBehaviour
     public float sens=0.001f;
     public Material selected;
     public Material normal;
-    public GameObject elf;
+    public GameObject elf1,elf2,elf3;
     private Touch touch;
     public AudioClip[] elfaudio;
     private bool isdraging = false;
@@ -21,7 +21,7 @@ public class movedrag : MonoBehaviour
         {
             if (Input.touchCount > 0)
             {
-                
+
                 touch = Input.GetTouch(0);
                 Vector3 pos = touch.position;
                 if (touch.phase == TouchPhase.Began)
@@ -31,64 +31,80 @@ public class movedrag : MonoBehaviour
 
                     if (Physics.Raycast(ray, out hit) && hit.collider.tag == target)
                     {
-                        
+
                         Obj = hit.collider.gameObject as GameObject;
-                        
+
                     }
-                    if (Physics.Raycast(ray, out hit) && hit.collider.gameObject==elf)
+                    if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf1)
                     {
-                        AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf.transform.position);
-                        elf.GetComponent<ElfAnimation>().textcount++;
+
+                        AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf1.transform.position);
+                        if (elf1.GetComponent<ElfAnimation>().textcount < 3 || elf1.GetComponent<ElfAnimation>().textcount > 6)
+                        {
+                            elf1.GetComponent<ElfAnimation>().textcount++;
+                        }
+
+
 
                     }
-
-                }
-                if (touch.phase == TouchPhase.Moved&&Obj!=null)
-                {
-                    Obj.transform.position = new Vector3(Obj.transform.position.x + touch.deltaPosition.x * sens,
-                        Obj.transform.position.y,
-                        Obj.transform.position.z + touch.deltaPosition.y * sens);
-                }
-                if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-                {
-                    Obj = null;
+                    if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf2)
+                    {
+                        AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf2.transform.position);
+                        if (elf2.GetComponent<ElfAnimation>().textcount < 3 || elf1.GetComponent<ElfAnimation>().textcount > 3)
+                        {
+                            elf2.GetComponent<ElfAnimation>().textcount++;
+                        }
+                    }
+                    if (touch.phase == TouchPhase.Moved && Obj != null)
+                    {
+                        Obj.transform.position = new Vector3(Obj.transform.position.x + touch.deltaPosition.x * sens,
+                            Obj.transform.position.y,
+                            Obj.transform.position.z + touch.deltaPosition.y * sens);
+                    }
+                    if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+                    {
+                        Obj = null;
+                    }
                 }
             }
         }
-        else if(pc) {
-            Debug.Log("using pc");
+        else if (pc)
+        {
             RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf && Input.GetMouseButtonDown(0))
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf1 && Input.GetMouseButtonDown(0))
             {
 
-                AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf.transform.position);
-                elf.GetComponent<ElfAnimation>().textcount++;
+                AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf1.transform.position);
+                elf1.GetComponent<ElfAnimation>().textcount++;
             }
-            else if (Physics.Raycast(ray, out hit) && hit.collider.tag == target) {
-                Obj= hit.collider.gameObject as GameObject;
+            else if (Physics.Raycast(ray, out hit) && hit.collider.tag == target)
+            {
+                Obj = hit.collider.gameObject as GameObject;
             }
             else { Obj = null; }
 
 
             //mouse drag
-            if (Input.GetMouseButtonDown(0)&&Obj!=null)
+            if (Input.GetMouseButtonDown(0) && Obj != null)
             {
                 isdraging = true;
-               
+
             }
-            if (Input.GetMouseButtonUp(0)) {
+            if (Input.GetMouseButtonUp(0))
+            {
                 isdraging = false;
             }
-            if (isdraging) {
+            if (isdraging)
+            {
                 //only X Z change in 3d 
-             //   Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition)-Obj.transform.position;
+                //   Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition)-Obj.transform.position;
 
 
-              //  Obj.transform.Translate(mp);
+                //  Obj.transform.Translate(mp);
             }
-           
-           
+
+
         }
     }
     
