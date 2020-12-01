@@ -4158,7 +4158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2141813644740447241, guid: 464b313f7ecd4a9478c31cc81bd636ae, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8503975046045442689, guid: 464b313f7ecd4a9478c31cc81bd636ae, type: 3}
       propertyPath: marker

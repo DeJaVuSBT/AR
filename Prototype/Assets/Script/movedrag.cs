@@ -43,9 +43,6 @@ public class movedrag : MonoBehaviour
                         {
                             elf1.GetComponent<ElfAnimation>().textcount++;
                         }
-
-
-
                     }
                     if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf2)
                     {
@@ -55,6 +52,7 @@ public class movedrag : MonoBehaviour
                             elf2.GetComponent<ElfAnimation>().textcount++;
                         }
                     }
+                }
                     if (touch.phase == TouchPhase.Moved && Obj != null)
                     {
                         Obj.transform.position = new Vector3(Obj.transform.position.x + touch.deltaPosition.x * sens,
@@ -65,7 +63,7 @@ public class movedrag : MonoBehaviour
                     {
                         Obj = null;
                     }
-                }
+                
             }
         }
         else if (pc)
