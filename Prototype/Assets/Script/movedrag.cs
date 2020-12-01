@@ -15,6 +15,8 @@ public class movedrag : MonoBehaviour
     private Touch touch;
     public AudioClip[] elfaudio;
     private bool isdraging = false;
+    private bool self1 = false,self2=false;
+
     void Update()
     {
         if (!pc)
@@ -29,20 +31,29 @@ public class movedrag : MonoBehaviour
                     RaycastHit hit;
                     Ray ray = cam.ScreenPointToRay(pos);
 
-                    if (Physics.Raycast(ray, out hit) && hit.collider.tag == target)
+                    if (Physics.Raycast(ray, out hit) )
                     {
+                        if (hit.collider.tag == target)
+                        {
+                            Obj = hit.collider.gameObject as GameObject;
+                          
+                        }
+                        else if (hit.collider.gameObject == elf1)
+                        {
+                            self1 = true;
+                        }
+                        else if (hit.collider.gameObject == elf2)
+                        {
+                            self1 = true;
+                        }
+                       
 
-                        Obj = hit.collider.gameObject as GameObject;
-                        Obj.GetComponent<MeshRenderer>().material.color = Color.blue;
+
                     }
                     if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf1)
                     {
 
-                        AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf1.transform.position);
-                        if (elf1.GetComponent<ElfAnimation>().textcount < 3 || elf1.GetComponent<ElfAnimation>().textcount > 6)
-                        {
-                            elf1.GetComponent<ElfAnimation>().textcount++;
-                        }
+                        self1 = true;
                     }
                     if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf2)
                     {
@@ -62,7 +73,30 @@ public class movedrag : MonoBehaviour
                     }
                     if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
                     {
+                    if (self1)
+                    {
+                        AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf1.transform.position);
+                        if (elf1.GetComponent<ElfAnimation>().textcount < 3 || elf1.GetComponent<ElfAnimation>().textcount > 3)
+                        {
+                            elf1.GetComponent<ElfAnimation>().textcount++;
+                        }
+                    }
+                    else if (self2)
+                    {
+                        AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf2.transform.position);
+                        if (elf2.GetComponent<ElfAnimation>().textcount < 3 || elf2.GetComponent<ElfAnimation>().textcount > 3)
+                        {
+                            elf2.GetComponent<ElfAnimation>().textcount++;
+                        }
+                    }
+                    else
+                    {
+                        self1 = false;
+                        self2 = false;
                         Obj = null;
+                    }
+
+                        
                     }
                 
             }
