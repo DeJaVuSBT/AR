@@ -44,25 +44,10 @@ public class movedrag : MonoBehaviour
                         }
                         else if (hit.collider.gameObject == elf2)
                         {
-                            self1 = true;
-                        }
-                       
-
-
-                    }
-                    if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf1)
-                    {
-
-                        self1 = true;
-                    }
-                    if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == elf2)
-                    {
-                        AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf2.transform.position);
-                        if (elf2.GetComponent<ElfAnimation>().textcount < 3 || elf1.GetComponent<ElfAnimation>().textcount > 3)
-                        {
-                            elf2.GetComponent<ElfAnimation>().textcount++;
+                            self2 = true;
                         }
                     }
+                   
                 }
 
                     if (touch.phase == TouchPhase.Moved && Obj != null)

@@ -151,8 +151,8 @@ public class ElfAnimation : MonoBehaviour
             case 5:
                 text.text = elftext[4];
                 spot2.SetActive(true);
-                marker2.SetActive(true);
                 spot2.GetComponent<AudioSource>().Play();
+                marker2.SetActive(true);
                 timer.GetComponent<Timebar>().Timebarstop();
                 next.GetComponent<ElfAnimation>().scene = 3;
                 scen2.SetActive(false);
