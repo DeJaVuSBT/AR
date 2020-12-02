@@ -15,7 +15,7 @@ public class movedrag : MonoBehaviour
     private Touch touch;
     public AudioClip[] elfaudio;
     private bool isdraging = false;
-    private bool self1 = false,self2=false;
+   
 
     void Update()
     {
@@ -40,11 +40,20 @@ public class movedrag : MonoBehaviour
                         }
                         else if (hit.collider.gameObject == elf1)
                         {
-                            self1 = true;
+                            AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf1.transform.position);
+                            if (elf1.GetComponent<ElfAnimation>().textcount < 3 || elf1.GetComponent<ElfAnimation>().textcount > 6)
+                            {
+                                elf1.GetComponent<ElfAnimation>().textcount++;
+                            }
+
                         }
                         else if (hit.collider.gameObject == elf2)
                         {
-                            self2 = true;
+                            AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf2.transform.position);
+                            if (elf2.GetComponent<ElfAnimation>().textcount < 3 || elf2.GetComponent<ElfAnimation>().textcount > 3)
+                            {
+                                elf2.GetComponent<ElfAnimation>().textcount++;
+                            }
                         }
                     }
                    
@@ -53,35 +62,14 @@ public class movedrag : MonoBehaviour
                     if (touch.phase == TouchPhase.Moved && Obj != null)
                     {
                         Obj.transform.position = new Vector3(Obj.transform.position.x + touch.deltaPosition.x * sens,
-                            Obj.transform.position.y,
-                            Obj.transform.position.z + touch.deltaPosition.y * sens);
+                           Obj.transform.position.y,
+                           Obj.transform.position.z + touch.deltaPosition.y * sens);
                     }
                     if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
                     {
-                    if (self1)
-                    {
-                        AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf1.transform.position);
-                        if (elf1.GetComponent<ElfAnimation>().textcount < 3 || elf1.GetComponent<ElfAnimation>().textcount > 3)
-                        {
-                            elf1.GetComponent<ElfAnimation>().textcount++;
-                        }
-                    }
-                    else if (self2)
-                    {
-                        AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf2.transform.position);
-                        if (elf2.GetComponent<ElfAnimation>().textcount < 3 || elf2.GetComponent<ElfAnimation>().textcount > 3)
-                        {
-                            elf2.GetComponent<ElfAnimation>().textcount++;
-                        }
-                    }
-                    else
-                    {
-                        self1 = false;
-                        self2 = false;
-                        Obj = null;
-                    }
 
                         
+                        Obj = null;                 
                     }
                 
             }

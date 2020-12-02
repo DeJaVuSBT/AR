@@ -515,6 +515,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8648396886444069791, guid: 96c47c4c99bf617489d6a23c0c02c455, type: 3}
+      propertyPath: m_TagString
+      value: Elf
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96c47c4c99bf617489d6a23c0c02c455, type: 3}
 --- !u!4 &8182628492644430694 stripped
