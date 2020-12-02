@@ -4,11 +4,7 @@ using UnityEngine;
 public class SoundScript : MonoBehaviour
 {
     public Sound[] sounds;
-    public GameObject tree;
     public AudioClip clip;
-
-
-   
     public void BGM()
     {
 

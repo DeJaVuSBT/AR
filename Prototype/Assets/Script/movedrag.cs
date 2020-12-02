@@ -55,6 +55,11 @@ public class movedrag : MonoBehaviour
                                 elf2.GetComponent<ElfAnimation>().textcount++;
                             }
                         }
+                        else if (hit.collider.gameObject == elf3)
+                        {
+                            AudioSource.PlayClipAtPoint(elfaudio[Random.Range(0, 3)], elf3.transform.position);
+                            elf3.GetComponent<ElfAnimation>().textcount++;
+                        }
                     }
                    
                 }

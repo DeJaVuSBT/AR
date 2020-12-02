@@ -9,7 +9,7 @@ public class ElfAnimation : MonoBehaviour
     public string[] elftext;
     //scene1
     public puzzel1 puzzle;
-    public GameObject marker,scen1,spot,timer,next;
+    public GameObject marker,scen1,spot,timer;
 
     public int scene=1;
     //scene2
@@ -40,6 +40,11 @@ public class ElfAnimation : MonoBehaviour
             SwitchAm2();
             SwitchText2();
 
+        }
+        if (scene == 3)
+        {
+            SwitchAm3();
+            SwitchText3();
         }
     }
     #region scene1
@@ -105,12 +110,9 @@ public class ElfAnimation : MonoBehaviour
                 text.text = elftext[7];
                 break;
             case 9:
-                marker.SetActive(false);
-                
                 spot.SetActive(true);
                 spot.GetComponent<AudioSource>().Play();
                 timer.GetComponent<Timebar>().Timebarstop();
-                next.GetComponent<ElfAnimation>().scene = 2;
                 scen1.SetActive(false);
                 break;
         }
@@ -154,7 +156,6 @@ public class ElfAnimation : MonoBehaviour
                 spot2.GetComponent<AudioSource>().Play();
                 marker2.SetActive(true);
                 timer.GetComponent<Timebar>().Timebarstop();
-                next.GetComponent<ElfAnimation>().scene = 3;
                 scen2.SetActive(false);
                 break;
 
@@ -162,5 +163,37 @@ public class ElfAnimation : MonoBehaviour
     }
 
     #endregion
+    #region scene3
+    private void SwitchAm3()
+    {
+        if (textcount == 0)
+        {
+            Am.Play("Stand");
+        }
+        else if (textcount > 0 && textcount <= 2)
+        {
+            Am.Play("Talk");
+        }
+        else if (textcount > 2)
+        {
+            Am.Play("Stand");
+        }
+    }
+    private void SwitchText3()
+    {
+        switch (textcount)
+        {
+            case 1:
+                text.text = elftext[0];
+                break;
+            case 2:
+                text.text = elftext[1];
+                break;
+            case 3:
+                text.text = elftext[2];
+                break;
+        }
+    }
+    #endregion 
 }
 
