@@ -68,9 +68,13 @@ public class movedrag : MonoBehaviour
                     if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
                     {
 
+                    
+                    Obj = null;
+
+                }
                         
-                        Obj = null;                 
-                    }
+                                    
+                    
                 
             }
         }
